@@ -36,6 +36,8 @@ namespace GridSystem
         { 
             CreateGrid();
             LockArea(); // avoid editing visual area by mistake once the grid is created
+            AudioManager.instance.Play("Forest");
+            AudioManager.instance.Stop("Battle");
         }
 
         #region GRID INITIALIZATION

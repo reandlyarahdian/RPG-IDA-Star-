@@ -42,5 +42,6 @@ public class AttackTarget : MonoBehaviour {
 
 			ownerStats.mana -= this.manaCost;
 		}
+
 	}
 }

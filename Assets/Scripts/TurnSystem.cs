@@ -36,6 +36,8 @@ public class TurnSystem : MonoBehaviour {
 		this.enemyUnitsMenu.SetActive (false);
 
 		this.nextTurn ();
+
+		AudioManager.instance.Play("Battle");
 	}
 
 	public void nextTurn() {

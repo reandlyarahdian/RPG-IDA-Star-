@@ -11,8 +11,7 @@ public class SpawnEnemy : MonoBehaviour {
 
 	void Start() {
 		DontDestroyOnLoad (this.gameObject);
-
-		SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
@@ -30,6 +29,7 @@ public class SpawnEnemy : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             this.spawning = true;
+            AudioManager.instance.Stop("Forest");
             SceneManager.LoadScene("Battle");
         }
     }

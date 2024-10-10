@@ -31,7 +31,8 @@ public class PlayerUnitAction : MonoBehaviour {
 
 	public void act(GameObject target) {
 		this.currentAttack.GetComponent<AttackTarget> ().hit (target);
-	}
+        AudioManager.instance.Play("Woosh1");
+    }
 
 	public void updateHUD() {
 		GameObject playerUnitFace = GameObject.Find ("PlayerUnitFace") as GameObject;

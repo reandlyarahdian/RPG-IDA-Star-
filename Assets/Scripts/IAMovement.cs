@@ -13,6 +13,10 @@ namespace Demo
         //[Header("Dependencies")] [SerializeField]
         private Transform _target;
 
+        [Header("Animation")]
+        [SerializeField]
+        private Animator animator;
+
         [Header("Is IDAStar")]
         [SerializeField]
         private bool IDAStar;
@@ -100,8 +104,17 @@ namespace Demo
             }
             
             _movDirection = (_nextPosition - transform.position).normalized;
-            transform.Translate(_movDirection * (_speed * Time.deltaTime));
-            
+            Vector3 velocity = _movDirection * (_speed * Time.deltaTime);
+            float moveHorizontal = _movDirection.x;
+            float moveVertical = _movDirection.y;
+
+            animator.SetFloat("Blend", moveHorizontal);
+            animator.SetFloat("Blend2", moveVertical);
+
+            Debug.Log(_movDirection);
+
+            transform.Translate(velocity);
+
             _movTimer += Time.deltaTime;
             if (_movTimer >= _movDuration)
             {
